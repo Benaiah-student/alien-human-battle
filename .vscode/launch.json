@@ -3,6 +3,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Battle",
+            "request": "launch",
+            "mainClass": "alienHumanBattle/battle.Battle",
+            "projectName": "alien-human-battle_72fb800"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "battle.Battle",

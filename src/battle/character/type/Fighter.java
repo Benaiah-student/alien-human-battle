@@ -1,5 +1,6 @@
 package battle.character.type;
 
+import battle.RandomUtil;
 import battle.character.Combatant;
 import battle.character.Damageable;
 
@@ -21,9 +22,9 @@ public abstract class Fighter implements Combatant, Damageable {
 	 */
 	public Fighter(int maxHealth, int attackPower) {
 		//TODO: PART 1
-		this.maxHealth = -1;
-		this.health = -1;
-		this.attackPower = -1;
+		this.maxHealth = maxHealth;
+		this.health = maxHealth;
+		this.attackPower = attackPower;
 	}
 	
 	/**
@@ -35,7 +36,8 @@ public abstract class Fighter implements Combatant, Damageable {
 	 */
 	public int attack(Damageable opponent) {
 		//TODO: PART 1
-		return -1;
+		double tempPowerMod = RandomUtil.randomInclusive(4,5);
+		return (attackPower/tempPowerMod);
 	}
 	
 	/**
