@@ -1,5 +1,6 @@
 package battle.character.type;
 
+import battle.RandomUtil;
 import battle.character.Combatant;
 import battle.character.Damageable;
 import battle.character.Disableable;
@@ -17,8 +18,7 @@ public abstract class Healer implements Disableable, Combatant {
 	 * @param healingPower an amount corresponding to their magic capabilities
 	 */
 	public Healer(int healingPower) {
-		//TODO: PART 2
-		this.healingPower = -1;
+		this.healingPower = healingPower;
 		this.disabledTurns = Integer.MAX_VALUE;
 	}
 	
@@ -30,8 +30,7 @@ public abstract class Healer implements Disableable, Combatant {
 	 * @return how much health the person gained
 	 */
 	public int heal(Damageable teammate) {
-		//TODO: PART 2
-		return -1;
+		return teammate.incrementHealth(healingPower*(RandomUtil.randomInclusive(5,10)/10));
 	}
 	
 	/**
@@ -41,8 +40,8 @@ public abstract class Healer implements Disableable, Combatant {
 	 * @return how much health the person gained
 	 */
 	public int sacrifice(Damageable teammate) {
-		//TODO: PART 2
-		return -1;
+		disabledTurns = 5;
+		return teammate.incrementHealth(Integer.MAX_VALUE);
 	}
 	
 	/**

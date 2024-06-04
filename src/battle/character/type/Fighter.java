@@ -21,7 +21,6 @@ public abstract class Fighter implements Combatant, Damageable {
 	 * @param attackPower how hard are their punches
 	 */
 	public Fighter(int maxHealth, int attackPower) {
-		//TODO: PART 1
 		this.maxHealth = maxHealth;
 		this.health = maxHealth;
 		this.attackPower = attackPower;
@@ -35,9 +34,8 @@ public abstract class Fighter implements Combatant, Damageable {
 	 * @return the amount of damage they do; this should always be negative
 	 */
 	public int attack(Damageable opponent) {
-		//TODO: PART 1
-		double tempPowerMod = RandomUtil.randomInclusive(4,5);
-		return (attackPower/tempPowerMod);
+		int tempPowerMod = RandomUtil.randomInclusive(50,100);
+		return (attackPower*(tempPowerMod/100));
 	}
 	
 	/**
@@ -95,8 +93,10 @@ public abstract class Fighter implements Combatant, Damageable {
 	 */
 	@Override
 	public boolean isAlive() {
-		//TODO: PART 1
-		return false;
+		if (0 >= getHealth()){
+			return false;
+		}
+		return true;
 	}
 	
 	
@@ -117,7 +117,6 @@ public abstract class Fighter implements Combatant, Damageable {
 	 */
 	@Override
 	public boolean canTakeTurn() {
-		//TODO: PART 1
-		return false;
+		return isAlive();
 	}
 }
