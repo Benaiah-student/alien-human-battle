@@ -1,5 +1,6 @@
 package battle.character.type;
 
+import battle.RandomUtil;
 import battle.character.Damageable;
 import battle.character.Disableable;
 
@@ -16,8 +17,8 @@ public abstract class SpecialFighter extends Fighter implements Disableable {
 	 * @param attackPower how hard are their punches
 	 */
 	public SpecialFighter(int maxHealth, int attackPower) {
-		//TODO: PART 3 - is this being done somewhere else? how can we borrow that functionality
-		super(-1, -1);
+		//TODO: PART  3 - is this being done somewhere else? how can we borrow that functionality
+		super(maxHealth, attackPower);
 	}
 	
 	/**
@@ -29,7 +30,8 @@ public abstract class SpecialFighter extends Fighter implements Disableable {
 	 */
 	public int attack(Damageable opponent) {
 		//TODO: PART 3
-		return -1;
+		int tempPowerMod = RandomUtil.randomInclusive(0,100);
+		return opponent.incrementHealth(-attackPower*(tempPowerMod/100));
 	}
 
 	/**
